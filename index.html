@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قصة حب عبده ووفاء ❤️ | ميثاق العشق الأبدي</title>
+    
+    <!-- الخطوط: Amiri للعناوين و Cairo للنصوص و Dancing Script للإنجليزية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;700;900&family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --romantic-blue: #e0f2fe; 
+            --romantic-green: #2d4a3e; 
+            --gold: #d4af37;
+            --soft-pink: #fff5f5;
+            --heart-red: #ff4d4d;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--soft-pink);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="font-size: 20px;"><text y="15">❤️</text></svg>'), auto;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Amiri', serif;
+        }
+
+        .cursive {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        /* Hero Section */
+        .hero-bg {
+            background: linear-gradient(rgba(45, 74, 62, 0.45), rgba(45, 74, 62, 0.45)), 
+                        url('IMG_20251229_042220.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: absolute;
+            animation: floatHeart 10s infinite linear;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(110vh) scale(0.5) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(-20vh) scale(1.5) rotate(360deg); opacity: 0; }
+        }
+
+        /* Love Note Card */
+        .love-note {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+        .love-note:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        /* Photo Frame Effect */
+        .photo-frame {
+            background: white;
+            padding: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        .photo-frame:hover {
+            transform: scale(1.03) rotate(-1deg);
+        }
+
+        /* Pulse Animation for Music Icon */
+        .pulse {
+            animation: pulse-red 2s infinite;
+        }
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 77, 77, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
+        }
+
+        /* Lightbox */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--soft-pink); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+        /* Secret Message Animation */
+        .hidden-text {
+            filter: blur(5px);
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .hidden-text:hover {
+            filter: blur(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Lightbox -->
+    <div id="lightbox" onclick="this.style.display='none'">
+        <img id="lightbox-img" src="" class="rounded-lg shadow-2xl border-4 border-white">
+    </div>
+
+    <!-- Music Player Overlay -->
+    <div class="fixed top-6 left-6 z-[100]">
+        <button id="musicToggle" class="w-14 h-14 bg-white shadow-2xl rounded-full flex items-center justify-center text-slate-800 hover:text-gold transition border-2 border-gold/30 pulse">
+            <i class="fa-solid fa-music text-xl text-red-500"></i>
+        </button>
+        
+        <button onclick="playMusic()">تشغيل الموسيقى 🎶</button>
+
+<audio id="romanticMusic" loop>
+            <source src="https://mp3s.shabakngy.com/m/new/HVgy8Ge0GJQ.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <!-- 1. Hero Section -->
+    <header class="hero-bg overflow-hidden">
+        <div id="hearts-container"></div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <div class="bg-white/80 backdrop-blur-lg inline-block p-10 md:p-20 rounded-[60px] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] border-b-8 border-gold relative">
+                <div class="absolute -top-10 left-1/2 -translate-x-1/2 flex gap-4 bg-white px-8 py-2 rounded-full border-2 border-gold shadow-lg">
+                    <i class="fa-solid fa-heart text-red-500 animate-bounce"></i>
+                    <i class="fa-solid fa-ring text-gold"></i>
+                    <i class="fa-solid fa-heart text-red-500 animate-bounce"></i>
+                </div>
+                
+                <h1 class="text-7xl md:text-9xl font-bold text-slate-800 mb-4 tracking-tighter">
+                    عبده <span class="text-gold cursive">and</span> وفاء
+                </h1>
+                <p class="text-3xl italic text-slate-600 font-serif mb-10">"خُلقتِ لي.. ليكون للحب معنى"</p>
+                
+                <div class="flex justify-center items-center gap-8 text-gold mb-12">
+                    <div class="h-[3px] w-20 bg-gradient-to-l from-gold to-transparent rounded-full"></div>
+                    <span class="text-3xl font-black tracking-[5px]">28 . 12 . 2025</span>
+                    <div class="h-[3px] w-20 bg-gradient-to-r from-gold to-transparent rounded-full"></div>
+                </div>
+
+                <a href="#story" class="group relative inline-flex items-center justify-center px-12 py-4 font-bold text-white transition-all duration-300 bg-[#2d4a3e] rounded-full hover:bg-gold shadow-2xl">
+                    <span class="relative">رحلة العشق</span>
+                    <i class="fa-solid fa-heart-pulse ml-2 group-hover:scale-125 transition"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Interactive Love Statistics -->
+    <section class="py-20 bg-[#2d4a3e] text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <i class="fa-solid fa-calendar-heart text-gold text-4xl mb-4"></i>
+                    <h4 id="days-count" class="text-5xl font-black text-white">00</h4>
+                    <p class="text-gold mt-2">يوم من الحب</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-camera-retro text-gold text-4xl mb-4"></i>
+                    <h4 class="text-5xl font-black text-white">∞</h4>
+                    <p class="text-gold mt-2">صورة تذكارية</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-mug-hot text-gold text-4xl mb-4"></i>
+                    <h4 class="text-5xl font-black text-white">∞</h4>
+                    <p class="text-gold mt-2">لحظات سعيدة</p>
+                </div>
+                <div>
+                    <i class="fa-solid fa-infinity text-gold text-4xl mb-4"></i>
+                    <h4 class="text-5xl font-black text-white">دائماً</h4>
+                    <p class="text-gold mt-2">نحن معاً</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Love Letters Section (New Romantic Detail) -->
+    <section id="story" class="py-24 bg-white overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold text-slate-800 mb-4 italic">رسائل لم تُقرأ بعد..</h2>
+                <p class="text-gold font-serif">كلمات من القلب إلى القلب</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- Letter from Abdo -->
+                <div class="love-note relative">
+                    <i class="fa-solid fa-quote-right absolute top-4 right-4 text-gold/20 text-6xl"></i>
+                    <h3 class="text-3xl font-bold text-slate-800 mb-6">إلى وفاء.. ❤️</h3>
+                    <p class="text-slate-600 leading-relaxed text-lg mb-4">
+                        "لم أكن أعلم أن السعادة يمكن أن تتلخص في وجه واحد، حتى رأيتكِ. أنتِ لستِ فقط شريكتي، بل أنتِ السكن والوطن الذي كنت أبحث عنه طوال عمري."
+                    </p>
+                    <p class="text-gold font-bold italic">- من المحب: عبده</p>
+                </div>
+
+                <!-- Letter from Wafaa -->
+                <div class="love-note relative md:mt-12">
+                    <i class="fa-solid fa-quote-left absolute top-4 left-4 text-gold/20 text-6xl"></i>
+                    <h3 class="text-3xl font-bold text-slate-800 mb-6">إلى ,وفاء.. ❤️</h3>
+                    <p class="text-slate-600 leading-relaxed text-lg mb-4">
+                        "بجانبك أشعر أن العالم بخير، وأن أحلامي أصبحت حقيقة. شكراً لأنك الأمان الذي يحتويني، والابتسامة التي تنير أيامي."
+                    </p>
+                    <p class="text-gold font-bold italic">- من المحبة: عبده</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Photo Gallery -->
+    <section id="gallery" class="py-24 bg-[#fff5f5]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-20">
+                <h2 class="text-6xl font-bold text-slate-800 mb-4">متحف عشقنا</h2>
+                <p class="text-gold italic">انقر على الصور لتغمرك التفاصيل..</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div class="photo-frame" onclick="showImage('img/img/IMG_20251229_004543.jpg')">
+                    <img src="img/img/IMG_20251229_004543.jpg"alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
+                </div>
+                <div class="photo-frame" onclick="showImage('img/img/IMG_20251229_004838.jpg')">
+                    <img src=img/img/IMG_20251229_004838.jpg alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
+                </div>
+                <div class="photo-frame" onclick="showImage('img/img/IMG_20251229_042045.jpg')">
+                    <img src="img/img/IMG_20251229_042045.jpg" alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
+                </div>
+                <div class="photo-frame" onclick="showImage('img/img/IMG_20251229_051105.jpg')">
+                    <img src="img/img/IMG_20251229_051105.jpg" alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
+                </div>
+                <div class="photo-frame" onclick="showImage('img/img/IMG_20251229_045726.jpg')">
+                    <img src="img/img/IMG_20251229_045726.jpg" alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
+                </div>
+                <div class="photo-frame" onclick="showImage('img/img/IMG_20251229_004543.jpg')">
+                    <img src="img/img/IMG_20251229_042220.jpg" alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
+                </div>
+                <div class="photo-frame" onclick="showImage('img/img/IMG_20251231_232933.jpg')">
+                    <img src="img/img/IMG_20251229_051806.jpg" alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
+                </div>
+                <div class="photo-frame" onclick="showImage('img/img/IMG_20251229_051655.jpg')">
+                    <img src="img/img/IMG_20260212_032932.jpg" alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Interactive "Reasons Why I Love You" (New Romantic Detail) -->
+    <section class="py-24 bg-[#2d4a3e]">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl text-white mb-16 italic">لماذا أنتِ قلبي؟ ❤️</h2>
+            <div class="flex flex-wrap justify-center gap-6">
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-[30px] border border-gold/30 text-white w-full max-w-xs hover:bg-gold hover:text-slate-900 transition duration-500">
+                    <i class="fa-solid fa-face-smile-wink text-4xl mb-4"></i>
+                    <h5 class="text-xl font-bold mb-2">ابتسامتكِ</h5>
+                    <p class="text-sm opacity-80">التي تجعل العالم يضحك في عيني عندما تضحكين.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-[30px] border border-gold/30 text-white w-full max-w-xs hover:bg-gold hover:text-slate-900 transition duration-500">
+                    <i class="fa-solid fa-hand-holding-heart text-4xl mb-4"></i>
+                    <h5 class="text-xl font-bold mb-2">حنانكِ</h5>
+                    <p class="text-sm opacity-80">الذي هو ملجئي الوحيد من ضجيج هذا العالم.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-[30px] border border-gold/30 text-white w-full max-w-xs hover:bg-gold hover:text-slate-900 transition duration-500">
+                    <i class="fa-solid fa-dove text-4xl mb-4"></i>
+                    <h5 class="text-xl font-bold mb-2">روحكِ</h5>
+                    <p class="text-sm opacity-80">لأنها تشبهني في كل شيء، وكأننا روح واحدة في جسدين.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- قسم الفيديو الطولي بالتشغيل التلقائي -->
+<section id="video-memories" class="py-24 bg-slate-50">
+    <div class="container mx-auto px-4 text-center">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-bold text-slate-800 mb-4 italic">لحظاتنا بالصوت والصورة.. 🎥</h2>
+        </div>
+
+        <div class="vertical-video-wrapper">
+            <div class="video-container">
+                <!-- الكلمات: autoplay (تشغيل تلقائي)، muted (صامت - ضروري للتشغيل التلقائي)، loop (تكرار مستمر) -->
+                <video autoplay muted loop playsinline poster="IMG_20251229_042220.jpg">
+                    <source src="2025-12-28-223321734.mp4" type="video/mp4">
+                    عذراً، متصفحك لا يدعم تشغيل هذا الفيديو.
+                </video>
+            </div>
+        </div>
+    </div>
+</section>
+                <!-- 2. إذا كان الفيديو من يوتيوب، احذف وسم <video> وضع هذا مكانه: -->
+                <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
+            </div>
+            
+            <div class="mt-8 flex justify-center items-center gap-4 text-slate-600 italic">
+                <i class="fa-solid fa-film text-gold"></i>
+                <span>"كل ثانية معك هي أجمل ذكرى"</span>
+                <i class="fa-solid fa-heart text-red-500"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- 6. Secret Message Reveal -->
+    <section class="py-24 bg-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-slate-800 mb-8">رسالة سرية.. (مرر الماوس لتراها)</h2>
+            <div class="bg-[#fff5f5] p-12 rounded-[50px] inline-block border-2 border-dashed border-gold">
+                <p class="text-4xl font-black text-[#2d4a3e] hidden-text">أحبكِ فوق ما تتصورين.. وللأبد ❤️</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Final Quote -->
+    <section class="py-32 bg-[#2d4a3e] text-white text-center relative overflow-hidden">
+        <!-- Background Heart Patterns -->
+        <i class="fa-solid fa-heart absolute -bottom-10 -left-10 text-[20rem] text-white/5 rotate-12"></i>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <i class="fa-solid fa-quote-right text-6xl text-gold/30 mb-10"></i>
+            <h3 class="text-5xl md:text-7xl font-serif leading-tight mb-12">
+                "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا"
+            </h3>
+            <div class="h-1 w-40 bg-gold mx-auto mb-10 rounded-full"></div>
+            <p class="text-gold font-black tracking-[12px] text-3xl cursive uppercase">Abdo & Wafaa Forever</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-white text-center">
+        <div class="flex justify-center gap-10 mb-8">
+            <a href="#" class="text-3xl text-slate-300 hover:text-red-500 transition-all"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="text-3xl text-slate-300 hover:text-blue-600 transition-all"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="text-3xl text-slate-300 hover:text-green-500 transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <p class="text-slate-500 font-bold">صُنع هذا الموقع بفيضٍ من الحب ليبقى ذكرى خالدة &copy; ٢٠٢٥</p>
+    </header>
+
+    <script>
+        // 1. Cursor Heart Trail Effect
+        document.addEventListener('mousemove', function(e) {
+            if(Math.random() > 0.92) { // Only create sometimes
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.style.position = 'fixed';
+                heart.style.left = e.clientX + 'px';
+                heart.style.top = e.clientY + 'px';
+                heart.style.fontSize = '12px';
+                heart.style.pointerEvents = 'none';
+                heart.style.transition = '2s';
+                heart.style.opacity = '1';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.style.transform = `translate(${(Math.random()-0.5)*100}px, -100px) scale(2)`;
+                    heart.style.opacity = '0';
+                }, 50);
+                
+                setTimeout(() => heart.remove(), 2000);
+            }
+        });
+
+        // 2. Continuous Floating Hearts in Hero
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            const icons = ['fa-heart', 'fa-heart-pulse', 'fa-dove', 'fa-ring'];
+            
+            setInterval(() => {
+                const heart = document.createElement('i');
+                const icon = icons[Math.floor(Math.random() * icons.length)];
+                heart.className = `fa-solid ${icon} heart`;
+                
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.color = Math.random() > 0.5 ? '#ff4d4d' : '#d4af37';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                
+                container.appendChild(heart);
+                setTimeout(() => heart.remove(), 10000);
+            }, 600);
+        }
+
+        // 3. Days Loved Counter (Dynamic Calculation)
+        function calculateDays() {
+            const startDate = new Date('2025-12-29'); // Wedding/Event date
+            const now = new Date();
+            const diffTime = Math.abs(now - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            document.getElementById('days-count').innerText = diffDays;
+        }
+
+        // 4. Music Player Toggle
+        const music = document.getElementById('romanticMusic');
+        const musicBtn = document.getElementById('musicToggle');
+        let isPlaying = false;
+
+        musicBtn.onclick = () => {
+            if(!isPlaying) {
+                music.play().catch(e => console.log("Audio needs user interaction"));
+                musicBtn.querySelector('i').className = "fa-solid fa-pause text-xl text-red-500";
+            } else {
+                music.pause();
+                musicBtn.querySelector('i').className = "fa-solid fa-music text-xl text-red-500";
+            }
+            isPlaying = !isPlaying;
+        };
+
+        // 5. Lightbox
+        function showImage(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        // Initialize everything
+        window.onload = () => {
+            createHearts();
+            calculateDays();
+        };
+
+        // Smooth Scroll for Nav Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
