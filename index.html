@@ -3,485 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قصة حب عبده ووفاء ❤️ | ميثاق العشق الأبدي</title>
-    
-    <!-- الخطوط: Amiri للعناوين و Cairo للنصوص و Dancing Script للإنجليزية -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;700;900&family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
-    
-    <!-- أيقونات FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Tailwind CSS -->
+    <title>ميرا ابي | التشكيلة الضخمة</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <style>
-        :root {
-            --romantic-blue: #e0f2fe; 
-            --romantic-green: #2d4a3e; 
-            --gold: #d4af37;
-            --soft-pink: #fff5f5;
-            --heart-red: #ff4d4d;
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--soft-pink);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="font-size: 20px;"><text y="15">❤️</text></svg>'), auto;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Amiri', serif;
-        }
-
-        .cursive {
-            font-family: 'Great Vibes', cursive;
-        }
-
-        /* Hero Section */
-        .hero-bg {
-            background: linear-gradient(rgba(45, 74, 62, 0.45), rgba(45, 74, 62, 0.45)), 
-                        url('IMG_20251229_042220.jpg'); 
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        /* Floating Hearts */
-        .heart {
-            position: absolute;
-            animation: floatHeart 10s infinite linear;
-            z-index: 1;
-            pointer-events: none;
-            opacity: 0;
-        }
-
-        @keyframes floatHeart {
-            0% { transform: translateY(110vh) scale(0.5) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.7; }
-            100% { transform: translateY(-20vh) scale(1.5) rotate(360deg); opacity: 0; }
-        }
-
-        /* Love Note Card */
-        .love-note {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            transition: all 0.3s ease;
-        }
-        .love-note:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-        }
-
-        /* Photo Frame Effect */
-        .photo-frame {
-            background: white;
-            padding: 12px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-        .photo-frame:hover {
-            transform: scale(1.03) rotate(-1deg);
-        }
-
-        /* Pulse Animation for Music Icon */
-        .pulse {
-            animation: pulse-red 2s infinite;
-        }
-        @keyframes pulse-red {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 77, 77, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 77, 77, 0); }
-        }
-
-        /* Lightbox */
-        #lightbox {
-            display: none;
-            position: fixed;
-            z-index: 999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--soft-pink); }
-        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
-
-        /* Secret Message Animation */
-        .hidden-text {
-            filter: blur(5px);
-            transition: 0.5s;
-            cursor: pointer;
-        }
-        .hidden-text:hover {
-            filter: blur(0);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-stone-50 text-stone-800 font-sans min-h-screen flex flex-col">
 
-    <!-- Lightbox -->
-    <div id="lightbox" onclick="this.style.display='none'">
-        <img id="lightbox-img" src="" class="rounded-lg shadow-2xl border-4 border-white">
-    </div>
-
-    <!-- Music Player Overlay -->
-    <div class="fixed top-6 left-6 z-[100]">
-        <button id="musicToggle" class="w-14 h-14 bg-white shadow-2xl rounded-full flex items-center justify-center text-slate-800 hover:text-gold transition border-2 border-gold/30 pulse">
-            <i class="fa-solid fa-music text-xl text-red-500"></i>
-        </button>
-        
-        <button onclick="playMusic()">تشغيل الموسيقى 🎶</button>
-
-<audio id="romanticMusic" loop>
-            <source src="https://mp3s.shabakngy.com/m/new/HVgy8Ge0GJQ.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-    <!-- 1. Hero Section -->
-    <header class="hero-bg overflow-hidden">
-        <div id="hearts-container"></div>
-        <div class="container mx-auto px-4 z-10 text-center">
-            <div class="bg-white/80 backdrop-blur-lg inline-block p-10 md:p-20 rounded-[60px] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] border-b-8 border-gold relative">
-                <div class="absolute -top-10 left-1/2 -translate-x-1/2 flex gap-4 bg-white px-8 py-2 rounded-full border-2 border-gold shadow-lg">
-                    <i class="fa-solid fa-heart text-red-500 animate-bounce"></i>
-                    <i class="fa-solid fa-ring text-gold"></i>
-                    <i class="fa-solid fa-heart text-red-500 animate-bounce"></i>
-                </div>
-                
-                <h1 class="text-7xl md:text-9xl font-bold text-slate-800 mb-4 tracking-tighter">
-                    عبده <span class="text-gold cursive">and</span> وفاء
-                </h1>
-                <p class="text-3xl italic text-slate-600 font-serif mb-10">"خُلقتِ لي.. ليكون للحب معنى"</p>
-                
-                <div class="flex justify-center items-center gap-8 text-gold mb-12">
-                    <div class="h-[3px] w-20 bg-gradient-to-l from-gold to-transparent rounded-full"></div>
-                    <span class="text-3xl font-black tracking-[5px]">28 . 12 . 2025</span>
-                    <div class="h-[3px] w-20 bg-gradient-to-r from-gold to-transparent rounded-full"></div>
+    <header class="sticky top-0 z-50 glass-panel border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-gold-300 to-gold-600 flex items-center justify-center text-white font-bold text-xl shadow-lg">M</div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-stone-800 tracking-wide">ميرا جولد</h1>
+                        <p class="text-xs text-stone-500">أكبر تشكيلة مجوهرات</p>
+                    </div>
                 </div>
 
-                <a href="#story" class="group relative inline-flex items-center justify-center px-12 py-4 font-bold text-white transition-all duration-300 bg-[#2d4a3e] rounded-full hover:bg-gold shadow-2xl">
-                    <span class="relative">رحلة العشق</span>
-                    <i class="fa-solid fa-heart-pulse ml-2 group-hover:scale-125 transition"></i>
-                </a>
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleDashboard()" class="hidden md:flex items-center gap-2 px-4 py-2 bg-stone-100 hover:bg-stone-200 rounded-full transition text-sm font-semibold">
+                        <span>📊</span> <span>تحليلات</span>
+                    </button>
+                    <div class="header-icons">
+    
+   <a href="index.html" class="home-icon">
+    <i class="fas fa-home"></i>
+    <span>الرئيسية</span>
+</a>
+   
+</div>
+                    <div class="relative cursor-pointer group" onclick="toggleCart()">
+                        <div class="p-3 bg-stone-100 rounded-full group-hover:bg-gold-100 transition relative">
+                            <span class="text-xl">🛍️</span>
+                            <span id="cart-badge" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center transform scale-0 transition-transform duration-200">0</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- 2. Interactive Love Statistics -->
-    <section class="py-20 bg-[#2d4a3e] text-white">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <i class="fa-solid fa-calendar-heart text-gold text-4xl mb-4"></i>
-                    <h4 id="days-count" class="text-5xl font-black text-white">00</h4>
-                    <p class="text-gold mt-2">يوم من الحب</p>
+    <main class="flex-grow">
+        <section class="relative bg-stone-900 text-white py-16 overflow-hidden">
+            <div class="absolute inset-0 opacity-20">
+                <div class="absolute w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gold-500 via-stone-900 to-stone-900"></div>
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gold-400">فخامة لا تضاهى</h2>
+                <p class="text-lg text-stone-300 max-w-2xl mx-auto leading-relaxed">
+                    استكشفي أكثر من قطعة مميزة من أحدث تصميمات المجوهرات العصرية والكلاسيكية.
+                </p>
+            </div>
+        </section>
+
+        <section id="dashboard-section" class="max-w-7xl mx-auto px-4 py-8 border-b border-stone-200 bg-white hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-stone-50 p-6 rounded-2xl border border-stone-100 shadow-sm">
+                    <h4 class="font-bold text-lg mb-4 text-center">توزيع المنتجات</h4>
+                    <div class="chart-container mx-auto"><canvas id="categoryChart"></canvas></div>
                 </div>
-                <div>
-                    <i class="fa-solid fa-camera-retro text-gold text-4xl mb-4"></i>
-                    <h4 class="text-5xl font-black text-white">∞</h4>
-                    <p class="text-gold mt-2">صورة تذكارية</p>
-                </div>
-                <div>
-                    <i class="fa-solid fa-mug-hot text-gold text-4xl mb-4"></i>
-                    <h4 class="text-5xl font-black text-white">∞</h4>
-                    <p class="text-gold mt-2">لحظات سعيدة</p>
-                </div>
-                <div>
-                    <i class="fa-solid fa-infinity text-gold text-4xl mb-4"></i>
-                    <h4 class="text-5xl font-black text-white">دائماً</h4>
-                    <p class="text-gold mt-2">نحن معاً</p>
+                <div class="bg-stone-50 p-6 rounded-2xl border border-stone-100 shadow-sm">
+                    <h4 class="font-bold text-lg mb-4 text-center">متوسط الأسعار</h4>
+                    <div class="chart-container mx-auto"><canvas id="priceChart"></canvas></div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 3. Love Letters Section (New Romantic Detail) -->
-    <section id="story" class="py-24 bg-white overflow-hidden">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl font-bold text-slate-800 mb-4 italic">رسائل لم تُقرأ بعد..</h2>
-                <p class="text-gold font-serif">كلمات من القلب إلى القلب</p>
+        <section class="max-w-7xl mx-auto px-4 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-10 sticky top-24 z-30 bg-stone-50/95 p-4 rounded-xl shadow-sm border border-stone-200 backdrop-blur-sm">
+                <div class="flex flex-wrap gap-2 justify-center" id="category-filters"></div>
+                <div class="flex gap-4 w-full md:w-auto">
+                    <div class="relative w-full md:w-64">
+                        <input type="text" id="search-input" placeholder="بحث..." class="w-full pl-4 pr-10 py-2 rounded-lg border border-stone-300 focus:outline-none focus:border-gold-500 transition bg-white text-right">
+                        <span class="absolute left-3 top-2.5 text-stone-400">🔍</span>
+                    </div>
+                    <select id="sort-select" class="px-4 py-2 rounded-lg border border-stone-300 bg-white focus:outline-none focus:border-gold-500 cursor-pointer">
+                        <option value="default">الأحدث</option>
+                        <option value="price-asc">الأقل سعراً</option>
+                        <option value="price-desc">الأعلى سعراً</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                <!-- Letter from Abdo -->
-                <div class="love-note relative">
-                    <i class="fa-solid fa-quote-right absolute top-4 right-4 text-gold/20 text-6xl"></i>
-                    <h3 class="text-3xl font-bold text-slate-800 mb-6">إلى وفاء.. ❤️</h3>
-                    <p class="text-slate-600 leading-relaxed text-lg mb-4">
-                        "لم أكن أعلم أن السعادة يمكن أن تتلخص في وجه واحد، حتى رأيتكِ. أنتِ لستِ فقط شريكتي، بل أنتِ السكن والوطن الذي كنت أبحث عنه طوال عمري."
-                    </p>
-                    <p class="text-gold font-bold italic">- من المحب: عبده</p>
-                </div>
-
-                <!-- Letter from Wafaa -->
-                <div class="love-note relative md:mt-12">
-                    <i class="fa-solid fa-quote-left absolute top-4 left-4 text-gold/20 text-6xl"></i>
-                    <h3 class="text-3xl font-bold text-slate-800 mb-6">إلى ,وفاء.. ❤️</h3>
-                    <p class="text-slate-600 leading-relaxed text-lg mb-4">
-                        "بجانبك أشعر أن العالم بخير، وأن أحلامي أصبحت حقيقة. شكراً لأنك الأمان الذي يحتويني، والابتسامة التي تنير أيامي."
-                    </p>
-                    <p class="text-gold font-bold italic">- من المحبة: عبده</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. Photo Gallery -->
-    <section id="gallery" class="py-24 bg-[#fff5f5]">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-20">
-                <h2 class="text-6xl font-bold text-slate-800 mb-4">متحف عشقنا</h2>
-                <p class="text-gold italic">انقر على الصور لتغمرك التفاصيل..</p>
+            <div class="flex justify-between items-center mb-6 px-2">
+                <span class="text-stone-500 font-medium">عرض <span id="showing-count" class="text-gold-600 font-bold">0</span> قطعة</span>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                <div class="photo-frame" onclick="showImage('img/img/IMG_20251229_004543.jpg')">
-                    <img src="img/img/IMG_20251229_004543.jpg"alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
-                </div>
-                <div class="photo-frame" onclick="showImage('img/img/IMG_20251229_004838.jpg')">
-                    <img src=img/img/IMG_20251229_004838.jpg alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
-                </div>
-                <div class="photo-frame" onclick="showImage('img/img/IMG_20251229_042045.jpg')">
-                    <img src="img/img/IMG_20251229_042045.jpg" alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
-                </div>
-                <div class="photo-frame" onclick="showImage('img/img/IMG_20251229_051105.jpg')">
-                    <img src="img/img/IMG_20251229_051105.jpg" alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
-                </div>
-                <div class="photo-frame" onclick="showImage('img/img/IMG_20251229_045726.jpg')">
-                    <img src="img/img/IMG_20251229_045726.jpg" alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
-                </div>
-                <div class="photo-frame" onclick="showImage('img/img/IMG_20251229_004543.jpg')">
-                    <img src="img/img/IMG_20251229_042220.jpg" alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
-                </div>
-                <div class="photo-frame" onclick="showImage('img/img/IMG_20251231_232933.jpg')">
-                    <img src="img/img/IMG_20251229_051806.jpg" alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
-                </div>
-                <div class="photo-frame" onclick="showImage('img/img/IMG_20251229_051655.jpg')">
-                    <img src="img/img/IMG_20260212_032932.jpg" alt="Abdo & Wafaa" class="w-full h-auto rounded-lg">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Interactive "Reasons Why I Love You" (New Romantic Detail) -->
-    <section class="py-24 bg-[#2d4a3e]">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl text-white mb-16 italic">لماذا أنتِ قلبي؟ ❤️</h2>
-            <div class="flex flex-wrap justify-center gap-6">
-                <div class="bg-white/10 backdrop-blur-md p-8 rounded-[30px] border border-gold/30 text-white w-full max-w-xs hover:bg-gold hover:text-slate-900 transition duration-500">
-                    <i class="fa-solid fa-face-smile-wink text-4xl mb-4"></i>
-                    <h5 class="text-xl font-bold mb-2">ابتسامتكِ</h5>
-                    <p class="text-sm opacity-80">التي تجعل العالم يضحك في عيني عندما تضحكين.</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-md p-8 rounded-[30px] border border-gold/30 text-white w-full max-w-xs hover:bg-gold hover:text-slate-900 transition duration-500">
-                    <i class="fa-solid fa-hand-holding-heart text-4xl mb-4"></i>
-                    <h5 class="text-xl font-bold mb-2">حنانكِ</h5>
-                    <p class="text-sm opacity-80">الذي هو ملجئي الوحيد من ضجيج هذا العالم.</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-md p-8 rounded-[30px] border border-gold/30 text-white w-full max-w-xs hover:bg-gold hover:text-slate-900 transition duration-500">
-                    <i class="fa-solid fa-dove text-4xl mb-4"></i>
-                    <h5 class="text-xl font-bold mb-2">روحكِ</h5>
-                    <p class="text-sm opacity-80">لأنها تشبهني في كل شيء، وكأننا روح واحدة في جسدين.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<!-- قسم الفيديو الطولي بالتشغيل التلقائي -->
-<section id="video-memories" class="py-24 bg-slate-50">
-    <div class="container mx-auto px-4 text-center">
-        <div class="text-center mb-16">
-            <h2 class="text-5xl font-bold text-slate-800 mb-4 italic">لحظاتنا بالصوت والصورة.. 🎥</h2>
-        </div>
-
-        <!-- قسم ذكريات الفيديو -->
-
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>إضافة فيديو</title>
-</head>
-
-
-    <h2>عرض الفيديو الخاص بي</h2>
-
-   <video width="640" controls autoplay muted>
-    <source src="2025-12-28-223321734.mp4" type="video/mp4">
-    متصفحك لا يدعم تشغيل هذا الفيديو.
-</video>
-</body>
-</html>         
-                <!-- 2. إذا كان الفيديو من يوتيوب، احذف وسم <video> وضع هذا مكانه: -->
-                <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
-            </div>
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
             
-            <div class="mt-8 flex justify-center items-center gap-4 text-slate-600 italic">
-                <i class="fa-solid fa-film text-gold"></i>
-                <span>"كل ثانية معك هي أجمل ذكرى"</span>
-                <i class="fa-solid fa-heart text-red-500"></i>
+            <div id="empty-state" class="hidden text-center py-20">
+                <div class="text-6xl mb-4">🔍</div>
+                <h3 class="text-xl font-bold text-stone-800">لا توجد نتائج</h3>
+                <button onclick="resetFilters()" class="mt-4 text-gold-600 font-bold hover:underline">عرض الكل</button>
             </div>
+        </section>
+    </main>
+
+    <footer class="bg-stone-900 text-stone-400 py-12 border-t border-gold-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-white text-xl font-bold mb-4"><span class="text-gold-500">❖</span> ميرا جولد</h3>
+            <p class="text-sm">جميع الحقوق محفوظة © 2024</p>
+        </div>
+    </footer>
+
+    <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden transition-opacity duration-300 opacity-0" onclick="toggleCart()"></div>
+    <div id="cart-drawer" class="fixed top-0 left-0 h-full w-full max-w-md bg-white z-[70] shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
+        <div class="p-5 border-b border-stone-100 flex justify-between items-center bg-stone-50">
+            <h2 class="text-xl font-bold text-stone-800">🛍️ سلة المشتريات</h2>
+            <button onclick="toggleCart()" class="p-2 hover:bg-stone-200 rounded-full transition text-stone-500">✕</button>
+        </div>
+        <div id="cart-items" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+        <div class="p-6 bg-stone-50 border-t border-stone-200">
+            <div class="flex justify-between items-center mb-4 text-stone-600">
+                <span>الإجمالي:</span>
+                <span id="cart-total" class="text-2xl font-bold text-stone-900">0 ج.م</span>
+            </div>
+            <button onclick="checkout()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition shadow-lg">
+                <span>📱</span> إرسال الطلب واتساب
+            </button>
         </div>
     </div>
-</section>
-</section>
-                <!-- 2. إذا كان الفيديو من يوتيوب، احذف وسم <video> وضع هذا مكانه: -->
-                <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
-            </div>
-            
-            <div class="mt-8 flex justify-center items-center gap-4 text-slate-600 italic">
-                <i class="fa-solid fa-film text-gold"></i>
-                <span>"كل ثانية معك هي أجمل ذكرى"</span>
-                <i class="fa-solid fa-heart text-red-500"></i>
-            </div>
+
+    <div id="image-modal" class="fixed inset-0 z-[90] bg-black/90 hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0 backdrop-blur-sm" onclick="closeImageModal()">
+        <button onclick="closeImageModal()" class="absolute top-5 right-5 text-white text-4xl hover:text-gold-500 transition z-[100]">&times;</button>
+        <div class="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center" onclick="event.stopPropagation()">
+            <img id="modal-img" src="" alt="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl transform scale-95 transition-transform duration-300 object-contain">
         </div>
     </div>
-</section>
 
-    <!-- 6. Secret Message Reveal -->
-    <section class="py-24 bg-white text-center">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-slate-800 mb-8">رسالة سرية.. (مرر الماوس لتراها)</h2>
-            <div class="bg-[#fff5f5] p-12 rounded-[50px] inline-block border-2 border-dashed border-gold">
-                <p class="text-4xl font-black text-[#2d4a3e] hidden-text">أحبكِ فوق ما تتصورين.. وللأبد ❤️</p>
-            </div>
-        </div>
-    </section>
+    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-stone-900 text-white px-6 py-3 rounded-full shadow-2xl z-[80] transition-all duration-300 translate-y-20 opacity-0 flex items-center gap-3">
+        <span class="text-gold-400 text-xl">✓</span>
+        <span id="toast-message">تم</span>
+    </div>
 
-    <!-- 7. Final Quote -->
-    <section class="py-32 bg-[#2d4a3e] text-white text-center relative overflow-hidden">
-        <!-- Background Heart Patterns -->
-        <i class="fa-solid fa-heart absolute -bottom-10 -left-10 text-[20rem] text-white/5 rotate-12"></i>
-        
-        <div class="container mx-auto px-4 relative z-10">
-            <i class="fa-solid fa-quote-right text-6xl text-gold/30 mb-10"></i>
-            <h3 class="text-5xl md:text-7xl font-serif leading-tight mb-12">
-                "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا"
-            </h3>
-            <div class="h-1 w-40 bg-gold mx-auto mb-10 rounded-full"></div>
-            <p class="text-gold font-black tracking-[12px] text-3xl cursive uppercase">Abdo & Wafaa Forever</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-16 bg-white text-center">
-        <div class="flex justify-center gap-10 mb-8">
-            <a href="#" class="text-3xl text-slate-300 hover:text-red-500 transition-all"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="text-3xl text-slate-300 hover:text-blue-600 transition-all"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" class="text-3xl text-slate-300 hover:text-green-500 transition-all"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-        <p class="text-slate-500 font-bold">صُنع هذا الموقع بفيضٍ من الحب ليبقى ذكرى خالدة &copy; ٢٠٢٥</p>
-    </header>
-
-    <script>
-        // 1. Cursor Heart Trail Effect
-        document.addEventListener('mousemove', function(e) {
-            if(Math.random() > 0.92) { // Only create sometimes
-                const heart = document.createElement('div');
-                heart.innerHTML = '❤️';
-                heart.style.position = 'fixed';
-                heart.style.left = e.clientX + 'px';
-                heart.style.top = e.clientY + 'px';
-                heart.style.fontSize = '12px';
-                heart.style.pointerEvents = 'none';
-                heart.style.transition = '2s';
-                heart.style.opacity = '1';
-                document.body.appendChild(heart);
-                
-                setTimeout(() => {
-                    heart.style.transform = `translate(${(Math.random()-0.5)*100}px, -100px) scale(2)`;
-                    heart.style.opacity = '0';
-                }, 50);
-                
-                setTimeout(() => heart.remove(), 2000);
-            }
-        });
-
-        // 2. Continuous Floating Hearts in Hero
-        function createHearts() {
-            const container = document.getElementById('hearts-container');
-            const icons = ['fa-heart', 'fa-heart-pulse', 'fa-dove', 'fa-ring'];
-            
-            setInterval(() => {
-                const heart = document.createElement('i');
-                const icon = icons[Math.floor(Math.random() * icons.length)];
-                heart.className = `fa-solid ${icon} heart`;
-                
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.color = Math.random() > 0.5 ? '#ff4d4d' : '#d4af37';
-                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-                heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
-                
-                container.appendChild(heart);
-                setTimeout(() => heart.remove(), 10000);
-            }, 600);
-        }
-
-        // 3. Days Loved Counter (Dynamic Calculation)
-        function calculateDays() {
-            const startDate = new Date('2025-12-29'); // Wedding/Event date
-            const now = new Date();
-            const diffTime = Math.abs(now - startDate);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            document.getElementById('days-count').innerText = diffDays;
-        }
-
-        // 4. Music Player Toggle
-        const music = document.getElementById('romanticMusic');
-        const musicBtn = document.getElementById('musicToggle');
-        let isPlaying = false;
-
-        musicBtn.onclick = () => {
-            if(!isPlaying) {
-                music.play().catch(e => console.log("Audio needs user interaction"));
-                musicBtn.querySelector('i').className = "fa-solid fa-pause text-xl text-red-500";
-            } else {
-                music.pause();
-                musicBtn.querySelector('i').className = "fa-solid fa-music text-xl text-red-500";
-            }
-            isPlaying = !isPlaying;
-        };
-
-        // 5. Lightbox
-        function showImage(src) {
-            document.getElementById('lightbox-img').src = src;
-            document.getElementById('lightbox').style.display = 'flex';
-        }
-
-        // Initialize everything
-        window.onload = () => {
-            createHearts();
-            calculateDays();
-        };
-
-        // Smooth Scroll for Nav Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
